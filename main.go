@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func ListDirs(dirName string, location string) {
+func ListDirs(dirName string) {
 
 	entries, err := os.ReadDir(dirName)
 	if err != nil {
@@ -18,7 +18,7 @@ func ListDirs(dirName string, location string) {
 		if entry.IsDir() {
 			subDir := filepath.Join(dirName, entry.Name())
 			ListFiles(subDir)
-			ListDirs(subDir, location)
+			ListDirs(subDir)
 		}
 	}
 
@@ -56,8 +56,8 @@ func main() {
 	}
 
 	username := getSimpleUserName(currentUser.Username)
-	var location string = filepath.Join(`C:\Users\`, username, `Desktop\OPEN_ME.txt`)
 	var root string = `C:\`
-	ListDirs(root, location)
+	ListDirs(root)
 }
+
 
