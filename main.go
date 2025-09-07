@@ -7,9 +7,6 @@ import (
 	"strings"
 )
 
-//"os"
-// "github.com/go-vgo/robotgo"
-
 func ListDirs(dirName string, location string) {
 
 	entries, err := os.ReadDir(dirName)
@@ -45,20 +42,6 @@ func ListFiles(dirPath string) {
 	}
 }
 
-/* func WriteFile(name string, location string) {
-	file, err := os.OpenFile(location, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-	if err != nil {
-		panic(err)
-	}
-
-	defer file.Close()
-	_, err = file.WriteString(name + "\n")
-	if err != nil {
-		panic(err)
-	}
-}
-*/
-
 func getSimpleUserName(fullName string) string {
 	parts := strings.Split(fullName, `\`)
 	return parts[len(parts)-1]
@@ -77,3 +60,4 @@ func main() {
 	var root string = `C:\`
 	ListDirs(root, location)
 }
+
